@@ -1,15 +1,24 @@
 "use client";
+import { useAppDispatch, useAppSelector } from "@/app/redux";
+import { setIsSidebarCollapsed } from "@/state";
 import { Bell, BellIcon, MenuIcon, Settings, Sun } from "lucide-react";
 import React from "react";
 
 type Props = {};
 
 function Navbar({}: Props) {
+  const dispatch = useAppDispatch();
+  const isSidebarCollapsed = useAppSelector(
+    (state) => state.global.isSidebarCollapsed
+  );
+
+  const toggleSidebarCollapsed = () =>
+    dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
   return (
-    <div className=" flex flex-row justify-between mb-7 w-full ">
+    <div className="flex justify-between mb-7 w-full ">
       {/* left side of navbar  */}
       <div className="flex justify-between items-center gap-5">
-        <button className="px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100">
+        <button className="px-3 py-3 bg-gray-100 rounded-full hover:bg-blue-100" onClick={toggleSidebarCollapsed}>
           <MenuIcon className="w-5 h-5" />
         </button>
 
@@ -29,7 +38,11 @@ function Navbar({}: Props) {
       <div className="flex justify-between gap-5">
         <div className="hidden md:flex gap-3  items-center">
           <div className="">
-            <button className="cursor-pointer " onClick={() => {}}>
+            <button
+              className="cursor-pointer "
+              onClick={() => {
+              }}
+            >
               <Sun className="cursor-pointer w-6 h-6" />
             </button>
           </div>
@@ -47,12 +60,14 @@ function Navbar({}: Props) {
             <span className="font-semibold">Ed Roh</span>
           </div>
         </div>
-        <div className="flex gap-3 items-center " onClick={
-            () => {
-                console.log("clicked");
-            }
-        }>
-            <Settings className="cursor-pointer w-6 h-6 text-gray-500" />
+        <div
+          className="flex gap-3 items-center "
+          onClick={() => {
+            toggleSidebarCollapsed();
+            console.log(isSidebarCollapsed);
+          }}
+        >
+          <Settings className="cursor-pointer w-6 h-6 text-gray-500" />
         </div>
       </div>
     </div>
