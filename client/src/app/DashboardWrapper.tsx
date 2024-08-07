@@ -8,7 +8,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
   );
-  console
+  console;
   const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
   console.log(isDarkMode);
   return (
@@ -24,7 +24,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       >
         <Navbar />
         {children}
-      </main>
+      </main>0
     </div>
   );
 };

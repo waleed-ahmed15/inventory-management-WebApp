@@ -18,7 +18,11 @@ function Sidebar({}: Props) {
   return (
     <div className={sidebarClassNames}>
       {/* header section */}
-      <div className={`${isSidebarCollapsed?"px-5":"px-8"} flex gap-3 justify-between md:justify-normal items-center pt-8`}>
+      <div
+        className={`${
+          isSidebarCollapsed ? "px-5" : "px-8"
+        } flex gap-3 justify-between md:justify-normal items-center pt-8`}
+      >
         <div>Logo</div>
 
         <h1 className="font-extrabold text-xl">WallE Stocks</h1>
@@ -29,8 +33,10 @@ function Sidebar({}: Props) {
           <Menu size={18} />
         </button>
       </div>
-      <div className="flex-grow mt-8"></div>
-      <div className="text-center text-xs text-gray-500">
+      <div
+        className={`flex-grow mt-8  ${isSidebarCollapsed ? "hidden" : "flex"} `}
+      ></div>
+      <div className={ ` ${isSidebarCollapsed ? "hidden" : ""} text-center text-xs text-gray-500`}>
         &copy; 2024 WallE Stocks.
       </div>
     </div>
