@@ -1,7 +1,7 @@
 "use client";
 import { useAppDispatch, useAppSelector } from "@/app/redux";
-import { setIsSidebarCollapsed } from "@/state";
-import { Bell, BellIcon, MenuIcon, Settings, Sun } from "lucide-react";
+import { setIsSidebarCollapsed, setIsDarkMode } from "@/state";
+import { Bell, BellIcon, MenuIcon, Settings, Sun, Moon } from "lucide-react";
 import React from "react";
 
 type Props = {};
@@ -11,9 +11,11 @@ function Navbar({}: Props) {
   const isSidebarCollapsed = useAppSelector(
     (state) => state.global.isSidebarCollapsed
   );
+  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
 
   const toggleSidebarCollapsed = () =>
     dispatch(setIsSidebarCollapsed(!isSidebarCollapsed));
+  const toggleDarkMode = () => dispatch(setIsDarkMode(!isDarkMode));
   return (
     <div className="flex justify-between mb-7 w-full ">
       {/* left side of navbar  */}
@@ -25,7 +27,7 @@ function Navbar({}: Props) {
           <MenuIcon className="w-5 h-5" />
         </button>
 
-        <div className="relative ">
+        <div className="relative md:pr-5 ">
           <input
             placeholder="Search Items"
             className="px-3 py-3 w-50 pl-7 pr-2 rounded-lg bg-white border-2  md:w-80 border-gray-300 focus:border-blue-300
@@ -41,13 +43,21 @@ function Navbar({}: Props) {
       <div className="flex justify-between gap-5">
         <div className="hidden md:flex gap-3  items-center">
           <div className="">
-            <button className="cursor-pointer " onClick={() => {}}>
-              <Sun className="cursor-pointer w-6 h-6" />
+            <button
+              className="cursor-pointer "
+              onClick={() => {
+                toggleDarkMode();
+              }}
+            >
+            {
+              isDarkMode? <Sun className="cursor-pointer w-6 h-6" />:<Moon className="cursor-pointer w-6 h-6" />
+            }
+              
             </button>
           </div>
           <div className="relative">
             <Bell className="cursor-pointer " size={24} />
-            <span className="absolute bg-red-500 -top-2 px-[0.4rem] py-[0.2rem] -right-2 rounded-full inline-flex items-center justify-center  text-white text-xs">
+            <span className="absolute bg-red-500 -top-2 px-[0.4rem] py-[0.2rem] -right-2  text-white rounded-full inline-flex items-center justify-center  text-xs">
               3
             </span>
           </div>
