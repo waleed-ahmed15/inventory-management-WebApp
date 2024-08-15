@@ -14,7 +14,7 @@ const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const getDasboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const popularProcuts = yield prisma.products.findMany({
+        const popularProducts = yield prisma.products.findMany({
             take: 15,
             orderBy: {
                 stockQuantity: "desc",
@@ -48,7 +48,7 @@ const getDasboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, funct
             return Object.assign(Object.assign({}, item), { amount: item.amount.toString });
         });
         res.json({
-            popularProcuts,
+            popularProducts,
             salesSummary,
             purchaseSummary,
             expenseSummary,
