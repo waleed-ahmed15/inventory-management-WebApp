@@ -13,6 +13,8 @@ exports.getDasboardMetrics = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const getDasboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    // add delay of 2 seconds
+    yield new Promise((resolve) => setTimeout(resolve, 2000));
     try {
         const popularProducts = yield prisma.products.findMany({
             take: 15,

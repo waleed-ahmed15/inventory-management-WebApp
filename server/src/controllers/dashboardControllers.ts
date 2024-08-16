@@ -6,6 +6,8 @@ export const getDasboardMetrics = async (
   req: Request,
   res: Response
 ): Promise<void> => {
+  // add delay of 2 seconds
+  await new Promise((resolve) => setTimeout(resolve, 2000));    
   try {
     const popularProducts = await prisma.products.findMany({
       take: 15,
