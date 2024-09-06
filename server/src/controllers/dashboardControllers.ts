@@ -42,9 +42,10 @@ export const getDasboardMetrics = async (
       }
     );
     const expenseByCategory = expenseByCategorySummaryRaw.map((item) => {
+      console.log(item);
       return {
         ...item,
-        amount: item.amount.toString,
+        amount: Number(item.amount),
       };
     });
     res.json({

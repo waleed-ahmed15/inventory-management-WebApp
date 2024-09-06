@@ -47,7 +47,8 @@ const getDasboardMetrics = (req, res) => __awaiter(void 0, void 0, void 0, funct
             },
         });
         const expenseByCategory = expenseByCategorySummaryRaw.map((item) => {
-            return Object.assign(Object.assign({}, item), { amount: item.amount.toString });
+            console.log(item);
+            return Object.assign(Object.assign({}, item), { amount: Number(item.amount) });
         });
         res.json({
             popularProducts,

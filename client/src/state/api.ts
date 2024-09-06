@@ -41,6 +41,7 @@ export interface ExpenseByCategory {
   expenseSummaryId: string;
   category: string;
   date: string;
+  amount: string;
 }
 
 export const api = createApi({
