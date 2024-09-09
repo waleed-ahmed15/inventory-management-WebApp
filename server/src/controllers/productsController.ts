@@ -2,7 +2,12 @@ import { Request, Response } from "express";
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
- export const getProducts = async (req: Request, res: Response): Promise<void> => {
+export const getProducts = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   const search = req.query.search?.toString();
   try {
     const products = await prisma.products.findMany({
@@ -19,7 +24,10 @@ const prisma = new PrismaClient();
     });
   }
 };
-export const  createProduct = async (req: Request, res: Response): Promise<void> => {
+export const createProduct = async (
+  req: Request,
+  res: Response
+): Promise<void> => {
   try {
     const { productId, name, price, rating, stockQuantity } = req.body;
     const product = await prisma.products.create({

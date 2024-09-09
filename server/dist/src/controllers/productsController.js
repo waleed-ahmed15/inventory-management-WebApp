@@ -14,6 +14,7 @@ const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
+    yield new Promise((resolve) => setTimeout(resolve, 2000));
     const search = (_a = req.query.search) === null || _a === void 0 ? void 0 : _a.toString();
     try {
         const products = yield prisma.products.findMany({
