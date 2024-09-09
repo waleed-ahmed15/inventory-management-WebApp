@@ -4,5 +4,5 @@ const express_1 = require("express");
 const productsController_1 = require("../controllers/productsController");
 const router = (0, express_1.Router)();
 router.get("/", productsController_1.getProducts);
-router.post("/add", productsController_1.createProduct);
+router.post("/", productsController_1.createProduct);
 exports.default = router;
