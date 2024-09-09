@@ -7,6 +7,8 @@ import morgan from "morgan";
 
 // ===============================IMPORT ROUTES=================================
 import dasboardRoute from "./routes/dashboardRoutes";
+import productsRoute from "./routes/productRoutes";
+
 // ==============================CONFIGUARATIONS================================
 dotenv.config();
 const app = express();
@@ -24,6 +26,8 @@ app.get("/hello", (req, res) => {
 });
 
 app.use("/dashboard", dasboardRoute);
+app.use("/products", productsRoute);
+
 
 /*========================SERVER======================================*/
 

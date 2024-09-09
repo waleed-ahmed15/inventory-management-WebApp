@@ -11,6 +11,7 @@ const helmet_1 = __importDefault(require("helmet"));
 const morgan_1 = __importDefault(require("morgan"));
 // ===============================IMPORT ROUTES=================================
 const dashboardRoutes_1 = __importDefault(require("./routes/dashboardRoutes"));
+const productRoutes_1 = __importDefault(require("./routes/productRoutes"));
 // ==============================CONFIGUARATIONS================================
 dotenv_1.default.config();
 const app = (0, express_1.default)();
@@ -26,6 +27,7 @@ app.get("/hello", (req, res) => {
     res.send("Hello World");
 });
 app.use("/dashboard", dashboardRoutes_1.default);
+app.use("/products", productRoutes_1.default);
 /*========================SERVER======================================*/
 const port = process.env.PORT || 5000;
 app.listen(process.env.PORT, () => {
