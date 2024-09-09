@@ -2,6 +2,7 @@ import { useGetDashboardMetricsQuery } from "@/state/api";
 import React from "react";
 import LoadingSpinner from "../(components)/LoadingSpinner";
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from "recharts";
+import { TrendingUp } from "lucide-react";
 
 type ExpenseSums = {
   [Category: string]: number;
@@ -15,6 +16,12 @@ const CardExpenseSummary = () => {
 
   // this function gets the sum of all the expenses by category
   // and returns an object with the category as key and the sum as value
+  const avgExpense =
+    expenseByCategoryData.reduce((acc: number, curr) => {
+      acc += parseInt(curr.amount);
+      return acc;
+    }, 0) / expenseByCategoryData.length;
+
   const expenseSums = expenseByCategoryData?.reduce(
     (acc: ExpenseSums, curr) => {
       console.log(curr);
@@ -24,16 +31,14 @@ const CardExpenseSummary = () => {
       acc[category] += amount;
       return acc;
     },
-    {
-       
-    }
+    {}
   );
   console.log(expenseByCategoryData);
   const totalExpense = expenseByCategoryData?.reduce((acc: number, curr) => {
     const amount = parseInt(curr.amount);
     acc += amount;
     return acc;
-  },0);
+  }, 0);
 
   //   const expenseSums = expenseByCategoryData.reduce(
   //     (acc: ExpenseSums, item ) => {
@@ -63,7 +68,7 @@ const CardExpenseSummary = () => {
       {isError && <div className="text-center">Error...</div>}
 
       {expenseByCategoryData.length !== 0 && (
-        <>
+        <div className="">
           <div>
             <h2 className="text-lg font-semibold mb-2 px-7 pt-5">
               Expense Summary
@@ -72,7 +77,7 @@ const CardExpenseSummary = () => {
           </div>
           <div className=" xl:flex   justify-start pr-7">
             <div className="relative basis-3/5 xl:basis-1/2">
-              <ResponsiveContainer width="100%" height={200}>
+              <ResponsiveContainer width="100%" height={185}>
                 <PieChart>
                   <Pie
                     data={expenseCategories}
@@ -116,7 +121,22 @@ const CardExpenseSummary = () => {
               </div>
             </ul>
           </div>
-        </>
+          {avgExpense && (
+            <>
+              <hr className="mt-2 lg:invisible "  />
+              <div className="flex justify-between px-3 ">
+                <div className="flex gap-2">
+                  <h3 className=" font-bold">Average: </h3>
+                  <p>{avgExpense}</p>
+                </div>
+                <div className="flex flex-row gap-2 items-center ">
+                  <TrendingUp size={20} color="#00C49F" />
+                  <p className="text-xs">30%</p>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
       )}
     </div>
   );
