@@ -30,7 +30,7 @@ const StatsCard = (props: StatsCardProps) => {
         <p>{props.dateRange}</p>
       </div>
       <hr />
-      <div className="flex  gap-2 px-10">
+      <div className="flex mt-2 gap-2 px-10">
         <div className=" flex items-center justify-center w-24 h-20 rounded-full bg-blue-100 border border-blue-200">
           {props.primaryIcon}
         </div>
