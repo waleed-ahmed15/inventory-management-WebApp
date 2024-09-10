@@ -50,11 +50,16 @@ export interface ExpenseByCategory {
   date: string;
   amount: string;
 }
+export interface Users {
+  userId: string;
+  name: string;
+  email: string;
+}
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL }),
   reducerPath: "api",
-  tagTypes: ["DashboardMetrics", "Products"],
+  tagTypes: ["DashboardMetrics", "Products", "Users"],
   endpoints: (build) => ({
     getDashboardMetrics: build.query<DashboardMetrics, void>({
       query: () => "/dashboard",
@@ -78,6 +83,13 @@ export const api = createApi({
       }),
       invalidatesTags: [{ type: "Products", id: "LIST" }], // Invalidate the common tag
     }),
+    getUsers: build.query<Users[], string | void>({
+      query: (search) => ({
+        url: "/user",
+        params: search ? { search } : {},
+      }),
+      providesTags: ["Users"],
+    }),
   }),
 });
 
@@ -85,4 +97,5 @@ export const {
   useGetDashboardMetricsQuery,
   useCreateProductMutation,
   useGetProductsQuery,
+  useGetUsersQuery
 } = api;
