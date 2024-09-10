@@ -25,7 +25,7 @@ const InventoryPage = (props: Props) => {
     {
       field: "productId",
       headerName: "ID",
-      width: 260,
+      minWidth: 200,
       flex: 1,
       align: "center",
       headerAlign: "center",
@@ -37,7 +37,7 @@ const InventoryPage = (props: Props) => {
     {
       field: "name",
       headerName: "Name",
-      width: 180,
+      minWidth: 180,
       align: "center",
       headerAlign: "center",
       renderHeader: (params: GridColumnHeaderParams) => (
@@ -47,7 +47,7 @@ const InventoryPage = (props: Props) => {
     {
       field: "price",
       headerName: "Price",
-      width: 110,
+      minWidth: 110,
       type: "number",
       flex: 1,
 
@@ -67,6 +67,7 @@ const InventoryPage = (props: Props) => {
       type: "number",
       flex: 1,
       align: "center",
+      minWidth: 200,
       headerAlign: "center",
 
       valueGetter: (value, row) => {
@@ -79,7 +80,7 @@ const InventoryPage = (props: Props) => {
     {
       field: "rating",
       headerName: "Rating",
-      width: 140,
+      minWidth: 140,
       type: "number",
       flex: 1,
       align: "center",
