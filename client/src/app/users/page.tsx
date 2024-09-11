@@ -7,7 +7,6 @@ import {
   DataGrid,
   GridColDef,
   GridColumnHeaderParams,
-  GridRowProps,
 } from "@mui/x-data-grid";
 
 type Props = {};

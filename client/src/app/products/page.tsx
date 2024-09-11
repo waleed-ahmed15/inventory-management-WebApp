@@ -66,7 +66,7 @@ const ProductsPage = (props: ProductsPageProps) => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {products &&
           products.map((product) => (
-            <div className="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded-lg shadow-md min-w-[280px]">
+            <div className="flex flex-col items-center justify-center gap-4 p-4 bg-white rounded-lg shadow-md min-w-[280px]" key={product.productId}>
               {/* <img src={product.nme} alt={product.name} className="w-full h-40 object-cover rounded-lg" /> */}
               img
               <div className="flex flex-col items-center justify-center gap-2">

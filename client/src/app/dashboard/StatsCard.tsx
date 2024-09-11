@@ -36,7 +36,7 @@ const StatsCard = (props: StatsCardProps) => {
         </div>
         <div className="flex flex-col overflow-auto h-32 w-full gap-3">
           {props.statDetail.map((detail, index) => (
-            <div className="flex flex-col">
+            <div className="flex flex-col" key={index}>
               <div key={index} className="flex ">
                 <p className="text-sm">{detail.title}</p>
                 <p className="flex-1 text-center font-bold">{detail.amount}</p>

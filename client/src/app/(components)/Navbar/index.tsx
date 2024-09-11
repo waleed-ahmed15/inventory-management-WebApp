@@ -49,10 +49,11 @@ function Navbar({}: Props) {
                 toggleDarkMode();
               }}
             >
-            {
-              isDarkMode? <Sun className="cursor-pointer w-6 h-6" />:<Moon className="cursor-pointer w-6 h-6" />
-            }
-              
+              {isDarkMode ? (
+                <Sun className="cursor-pointer w-6 h-6" />
+              ) : (
+                <Moon className="cursor-pointer w-6 h-6" />
+              )}
             </button>
           </div>
           <div className="relative">
@@ -66,7 +67,7 @@ function Navbar({}: Props) {
             <div className="w-10 h-10 bg-gray-100 text-center flex  items-center justify-center rounded-full">
               img
             </div>
-            <span className="font-semibold">Ed Roh</span>
+            <span className="font-semibold">WallE</span>
           </div>
         </div>
         <div className="flex gap-3 items-center " onClick={() => {}}>
