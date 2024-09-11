@@ -6,6 +6,8 @@ export const getExpenseSummryByCategory = async (
   req: Request,
   res: Response
 ): Promise<void> => {
+  await new Promise((resolve) => setTimeout(resolve, 2000));
+
   try {
     const expenseByCategorySummaryRaw = await prisma.expenseByCategory.findMany(
       {

@@ -39,6 +39,7 @@ const CardExpenseSummary = () => {
     acc += amount;
     return acc;
   }, 0);
+  
 
   //   const expenseSums = expenseByCategoryData.reduce(
   //     (acc: ExpenseSums, item ) => {
@@ -58,6 +59,7 @@ const CardExpenseSummary = () => {
       value,
     })
   );
+  console.log(expenseCategories);
   return (
     <div className="row-span-3 bg-white rounded-2xl flex flex-col justify-between  shadow-md">
       {isLoading && (

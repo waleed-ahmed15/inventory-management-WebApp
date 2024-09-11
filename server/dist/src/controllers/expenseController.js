@@ -13,6 +13,7 @@ exports.getExpenseSummryByCategory = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const getExpenseSummryByCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    yield new Promise((resolve) => setTimeout(resolve, 2000));
     try {
         const expenseByCategorySummaryRaw = yield prisma.expenseByCategory.findMany({
             orderBy: {
