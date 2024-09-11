@@ -9,6 +9,7 @@ import morgan from "morgan";
 import dasboardRoute from "./routes/dashboardRoutes";
 import productsRoute from "./routes/productRoutes";
 import userRoute from "./routes/userRoutes";
+import expenseRoute from "./routes/expenseRoutes";
 
 // ==============================CONFIGUARATIONS================================
 dotenv.config();
@@ -29,6 +30,7 @@ app.get("/hello", (req, res) => {
 app.use("/dashboard", dasboardRoute);
 app.use("/products", productsRoute);
 app.use("/user", userRoute);
+app.use("/expense", expenseRoute);
 
 
 /*========================SERVER======================================*/
