@@ -17,7 +17,7 @@ const SettingsPage = (props: SettingsProps) => {
           <div className="flex items-center">
             <h1 className="w-[200px] px-3 font-medium">Username</h1>
             <input
-              className="block w-[200px]  p-2 border   bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 rounded-md"
+              className="block w-[200px]  p-2 border   bg-white border-gray-200 dark:border-gray-600 rounded-md"
               disabled
               name="name"
               value="WallE"
@@ -28,7 +28,7 @@ const SettingsPage = (props: SettingsProps) => {
           <div className="flex items-center">
             <h1 className="w-[200px] px-3 font-medium">Email</h1>
             <input
-              className="block w-[200px]  p-2 border   bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 rounded-md"
+              className="block w-[200px]  p-2 border dark:bg-white   bg-white  border-gray-200 dark:border-gray-600 rounded-md"
               disabled
               name="name"
               value="waleed.ah755@gmail.com"
@@ -41,7 +41,7 @@ const SettingsPage = (props: SettingsProps) => {
             <label className="inline-flex relative items-center cursor-pointer">
               <input
                 type="checkbox"
-                className="sr-only peer"
+                className="sr-only peer "
                 // checked={setting.value as boolean}
                 // onChange={() => handleToggleChange(index)}
               />
@@ -75,7 +75,7 @@ const SettingsPage = (props: SettingsProps) => {
           <div className="flex mb-5 items-center">
             <h1 className="w-[200px] px-3  font-medium">Language</h1>
             <input
-              className="block w-[200px]  p-2 border   bg-white dark:bg-gray-700 border-gray-200 dark:border-gray-600 rounded-md"
+              className="block w-[200px]  p-2 border     dark:bg-white  border-gray-200 dark:border-gray-600 rounded-md"
               disabled
               name="name"
               value="English"
