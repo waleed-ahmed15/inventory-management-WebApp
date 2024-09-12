@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: inventoryManagement
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./server
+    container_name: backend
+    environment:
+      DATABASE_URL: "postgresql://postgres:1234@db:5432/inventoryManagement?schema=public"
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    command: sh -c "npx prisma migrate dev && npm run seed && npm run dev"
+    env_file:
+      - server/.env
+
+volumes:
+  postgres_data:
