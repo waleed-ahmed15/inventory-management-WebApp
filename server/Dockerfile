@@ -1,23 +1,18 @@
-# Use an official Node.js runtime as a parent image
 FROM node:18
-
-# Set the working directory in the container
 WORKDIR /usr/src/app
-
-# Copy package.json and package-lock.json
 COPY package*.json ./
-
-# Install dependencies
 RUN npm install
-
-# Copy the rest of your application code
 COPY . .
-
-# Generate Prisma client
 RUN npx prisma generate
-
-# Expose the port your app runs on
 EXPOSE 8000
+CMD npx prisma migrate dev && npm run seed && npm run dev
 
-# Define the command to run your app (Migrations and seeding will be handled in docker-compose)
-CMD ["npm", "run", "dev"]
+#  step 1 get node image
+#  step 2 (set working directory)
+#  step 3 copy package.json and package-lock.json
+#  step 4 install dependencies
+#  step 5 copy the rest of your application code
+#  step 6 generate prisma client
+#  step 7 expose the port your app runs on
+
+
