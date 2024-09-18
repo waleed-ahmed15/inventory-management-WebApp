@@ -34,6 +34,6 @@ app.use("/user", userRoutes_1.default);
 app.use("/expense", expenseRoutes_1.default);
 /*========================SERVER======================================*/
 const port = process.env.PORT || 5000;
-app.listen(process.env.PORT, () => {
+app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
