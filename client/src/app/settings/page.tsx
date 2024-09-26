@@ -67,6 +67,7 @@ const SettingsPage = (props: SettingsProps) => {
                 type="checkbox"
                 className="sr-only peer"
                 // checked={setting.value as boolean}
+                checked={isDarkMode}
                 onChange={() => {
                   console.log("dark mode");
                   toggleDarkMode();
