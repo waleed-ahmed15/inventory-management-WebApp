@@ -1,10 +1,16 @@
 "use client";
 import React from "react";
 import Header from "../(components)/Header";
+import { useAppDispatch, useAppSelector } from "../redux";
+import { setIsDarkMode } from "@/state";
 
 type SettingsProps = {};
 
 const SettingsPage = (props: SettingsProps) => {
+  const dispatch = useAppDispatch();
+  const isDarkMode = useAppSelector((state) => state.global.isDarkMode);
+  const toggleDarkMode = () => dispatch(setIsDarkMode(!isDarkMode));
+
   return (
     <div>
       <Header name="User Settings" />
@@ -61,7 +67,10 @@ const SettingsPage = (props: SettingsProps) => {
                 type="checkbox"
                 className="sr-only peer"
                 // checked={setting.value as boolean}
-                // onChange={() => handleToggleChange(index)}
+                onChange={() => {
+                  console.log("dark mode");
+                  toggleDarkMode();
+                }}
               />
               <div
                 className="w-11 h-6 bg-gray-200 rounded-full peer 

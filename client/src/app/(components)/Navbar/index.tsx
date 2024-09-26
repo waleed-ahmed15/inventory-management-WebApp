@@ -2,6 +2,7 @@
 import { useAppDispatch, useAppSelector } from "@/app/redux";
 import { setIsSidebarCollapsed, setIsDarkMode } from "@/state";
 import { Bell, BellIcon, MenuIcon, Settings, Sun, Moon } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 type Props = {};
@@ -56,22 +57,24 @@ function Navbar({}: Props) {
               )}
             </button>
           </div>
-          <div className="relative">
+          {/* <div className="relative">
             <Bell className="cursor-pointer " size={24} />
             <span className="absolute bg-red-500 -top-2 px-[0.4rem] py-[0.2rem] -right-2  text-white rounded-full inline-flex items-center justify-center  text-xs">
               3
             </span>
-          </div>
+          </div> */}
           <div className="w-0 h-10 border-solid border-l border-gray-300 mx-3" />
           <div className="flex items-center gap-3 ">
-            <div className="w-10 h-10 bg-gray-100 text-center flex  items-center justify-center rounded-full">
+            {/* <div className="w-10 h-10 bg-gray-100 text-center flex  items-center justify-center rounded-full">
               img
-            </div>
+            </div> */}
             <span className="font-semibold">WallE</span>
           </div>
         </div>
         <div className="flex gap-3 items-center " onClick={() => {}}>
-          <Settings className="cursor-pointer w-6 h-6 text-gray-500" />
+          <Link href="/settings">
+            <Settings className="cursor-pointer w-6 h-6 text-gray-500" />
+          </Link>
         </div>
       </div>
     </div>
